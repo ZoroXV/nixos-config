@@ -1,44 +1,33 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running `nixos-help`).
-
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 4;
   boot.loader.timeout = 60;
 
-  networking.hostName = "zor0-nixos"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "Zor0-ZENBOOK";
 
-  # Set your time zone.
+    networkmanager.enable = true;
+    interfaces.wlo1.useDHCP = true;
+  };
+
   time.timeZone = "Europe/Paris";
   time.hardwareClockInLocalTime = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-  #   keyMap = lib.mkDefault "fr";
-    useXkbConfig = true; # use xkbOptions in tty.
+    useXkbConfig = true;
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.windowManager.i3.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   
@@ -100,7 +89,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     dejavu_fonts
     nerdfonts
   ];
@@ -124,9 +113,13 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
+  nixpkgs.config.allowUnfree = true;
   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nixStable;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "@wheel" ];
+    };
   };
 }
 
