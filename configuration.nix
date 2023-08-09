@@ -79,6 +79,10 @@
     curl
     git
     git-lfs
+    gnumake
+    htop
+    python3
+    tree
     vim
     wget
   ];
