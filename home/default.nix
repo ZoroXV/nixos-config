@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 {
+  #xsession.windowManager.i3.enable = true;
+
   home = {
     stateVersion = "23.05";
 
@@ -11,5 +13,6 @@
     ];
   };
 
-  programs.home-manager.enable = true;
+  programs = import ./programs { inherit pkgs; };
+  #programs.home-manager.enable = true;
 }
