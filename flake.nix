@@ -41,7 +41,10 @@
     nixosConfigurations =
       let
         system = "x86_64-linux";
-        sharedModules = [ home-manager.nixosModule ]; #++ (nixpkgs.lib.attrValues self.nixosModules);
+        sharedModules = [
+          home-manager.nixosModule
+          ./base
+        ] ++ (nixpkgs.lib.attrValues self.nixosModules);
       in {
         zenbook = nixpkgs.lib.nixosSystem {
           inherit system;
