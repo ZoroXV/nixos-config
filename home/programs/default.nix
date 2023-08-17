@@ -6,5 +6,6 @@
 
   # Users Programs
   git = import ./git.nix {};
+  zsh = import ./zsh {};
   alacritty.enable = true;
 }
