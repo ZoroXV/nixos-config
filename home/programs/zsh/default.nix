@@ -10,7 +10,7 @@ in {
       source "${homeDirectory}/.cache/p10k-instant-prompt-${username}.zsh"
     fi
 
-    # neofetch
+    neofetch
 
     [[ ! -f ${p10k} ]] || source ${p10k}
   '';
