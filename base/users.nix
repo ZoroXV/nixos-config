@@ -10,5 +10,6 @@
       "wheel"
       "networkmanager"
     ];
+    initialPassword = "root";
   };
 }
