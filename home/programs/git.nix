@@ -5,6 +5,8 @@
   userName = "Victor LE CORRE";
   userEmail = "victor.le-corre" + "@" + "epita.fr";
 
+  lfs.enable = true;
+
   aliases = {
     c = "commit";
     s = "status";
