@@ -4,7 +4,7 @@
   users.users.zor0 = {
     isNormalUser = true;
     home = "/home/zor0";
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     uid = 4242;
     extraGroups = [
       "wheel"
