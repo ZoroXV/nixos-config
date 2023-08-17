@@ -7,5 +7,6 @@
   # Users Programs
   git = import ./git.nix {};
   zsh = import ./zsh { inherit pkgs; };
-  alacritty.enable = true;
+
+  alacritty = import ./alacritty.nix {};
 }
