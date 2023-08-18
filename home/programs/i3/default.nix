@@ -26,7 +26,12 @@ in {
       modifier = "Mod4";
       terminal = "alacritty";
 
-      window.border = 1;
+      window.border = 0;
+
+      gaps = {
+        inner = 10;
+        outer = 5;
+      };
 
       keybindings = lib.mkOptionDefault {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
