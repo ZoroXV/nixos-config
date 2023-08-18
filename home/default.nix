@@ -17,5 +17,5 @@
 
   programs = import ./programs { inherit pkgs; };
 
-  services.picom.enable = true;
+  services = import ./services { inherit pkgs; };
 }

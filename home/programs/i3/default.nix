@@ -26,7 +26,10 @@ in {
       modifier = "Mod4";
       terminal = "alacritty";
 
-      window.border = 0;
+      window = {
+        border = 0;
+        titlebar = false;
+      };
 
       gaps = {
         inner = 10;
@@ -88,6 +91,8 @@ in {
           ShiftRight = "resize grow width 2 px or 2 ppt";
         };
       };
+
+      bars = [];
 
       window.commands = [
         { command = "border pixel 0"; criteria = { class = "Firefox"; }; }
