@@ -7,13 +7,13 @@ let
   fg = "#FFFFFF";
 
   # Colored
-  primary = "#e30f00";
+  primary = "#5b9fd4";
 
   # Dark
   secondary = "#141228";
 
   # Colored (light)
-  tertiary = "#ff4500";
+  tertiary = "#83bcde";
 
   # white
   quaternary = "#ecf0f1";
