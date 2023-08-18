@@ -33,6 +33,12 @@ in {
         outer = 5;
       };
 
+      fonts = {
+        names = [ "DejaVu Sans Mono" ];
+        style = "Bold Semi-Condensed";
+        size = 8.0;
+      };
+
       keybindings = lib.mkOptionDefault {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
 
@@ -57,6 +63,13 @@ in {
         "${modifier}+Shift+8" = "move container to workspace ${cfg.workspaces.ws8}";
         "${modifier}+Shift+9" = "move container to workspace ${cfg.workspaces.ws9}";
         "${modifier}+Shift+0" = "move container to workspace ${cfg.workspaces.ws10}";
+
+        # Function keys
+        "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ false, exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ false, exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
       };
 
       modes = {
@@ -86,6 +99,18 @@ in {
       startup = [
         {
           command = "${pkgs.feh}/bin/feh --bg-scale ${wallpaper}";
+          always = true;
+          notification = false;
+        }
+
+        {
+          command = "exec i3-msg workspace 1";
+          always = true;
+          notification = false;
+        }
+
+        {
+          command = "systemctl --user restart polybar.service";
           always = true;
           notification = false;
         }
