@@ -1,3 +1,9 @@
+set number
+set expandtab
+set ignorecase
+set shiftwidth=4
+set tabstop=8
+
 set autoread
 set lazyredraw
 set encoding=utf-8
@@ -25,12 +31,12 @@ set showmatch
 
 " Display whitespace characters
 set list
-set listchars=tab:>─,eol:¬,trail:\ ,nbsp:¤
+set listchars=tab:>·,eol:¬,trail:\ ,nbsp:¤
 
 set fillchars=vert:│
 
 " Highlight current line
-set cursorline
+" set cursorline
 
 " The number of spaces inserted when you press tab.
 " -1 means the same value as shiftwidth
@@ -58,5 +64,5 @@ autocmd FileType vim setlocal foldmethod=marker
 " Set colorscheme
 " let g:jellybeans_background_color_256='232'
 " colorscheme jellybeans
-colorscheme catppuccin_mocha
+colorscheme nightfox
 let g:lightline = { 'colorscheme': 'catppuccin_mocha' }

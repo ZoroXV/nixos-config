@@ -10,7 +10,7 @@
 
   rofi = import ./rofi { inherit pkgs; };
 
-  vim = import ./vim { inherit pkgs; };
+  neovim = import ./vim { inherit pkgs; };
 
   zsh = import ./zsh { inherit pkgs; };
 }
