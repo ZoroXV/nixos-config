@@ -44,7 +44,7 @@ in {
 
       keybindings = lib.mkOptionDefault {
         "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -modi drun -show drun -show-icons";
         "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show window";
 
         # Workspace management
