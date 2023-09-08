@@ -13,4 +13,6 @@
   neovim = import ./vim { inherit pkgs; };
 
   zsh = import ./zsh { inherit pkgs; };
+
+  vscode = import ./vscode.nix { inherit pkgs; };
 }
