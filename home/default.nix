@@ -12,6 +12,7 @@
       feh
       firefox
       neofetch
+      discord
     ];
   };
 

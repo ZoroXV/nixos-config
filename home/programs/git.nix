@@ -2,8 +2,8 @@
 {
   enable = true;
 
-  userName = "Victor LE CORRE";
-  userEmail = "victor.le-corre" + "@" + "epita.fr";
+  userName = "Zor0";
+  userEmail = "zor0_mugiwara" + "@" + "proton.me";
 
   lfs.enable = true;
 
@@ -29,7 +29,12 @@
   ignores = [ "*~" "*.swp" ".o" ".d" ];
 
   extraConfig = {
+    user = {
+      signingkey = "7FF3C3F65700E2E3";
+    };
+
     commit = {
+      gpgsign = true;
       verbose = true;
     };
 
