@@ -30,7 +30,15 @@
 
   extraConfig = {
     user = {
-      signingkey = "7FF3C3F65700E2E3";
+      signingkey = "017FE45EB1B1D768AFC3FA0E4D7E5D00DAC2AEF8";
+    };
+
+    color = {
+      ui = true;
+      branch = "auto";
+      diff = "auto";
+      interactive = "auto";
+      status = "auto";
     };
 
     commit = {
@@ -38,8 +46,22 @@
       verbose = true;
     };
 
+    branch = {
+      autosetuprebase = "always";
+    };
+
+    rebase = {
+      autoSquash = true;
+      autoStash = true;
+    };
+
+    push = {
+      default = "simple";
+      autoSetupRemote = true;
+    };
+
     init = {
-      defaultBranch = "master";
+      defaultBranch = "main";
     };
   };
 }
